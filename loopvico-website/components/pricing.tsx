@@ -1,77 +1,71 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Check, X, Info, Truck, Clock } from "lucide-react";
+import { Check, X, Info } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
 
 const acceptedBags = [
-  "Common kitchen trash bags (Glad, Hefty, Kirkland, etc.)",
+  "Standard 13-gallon kitchen trash bags",
+  "Glad, Hefty, Kirkland, etc.",
   "Drawstring or tie-top bags",
-  "Bags must be able to close normally",
 ];
 
 const notAccepted = [
   "Contractor bags",
   "Lawn & leaf bags",
-  "Oversized trash bags",
-  "Laundry baskets or hampers",
-  "Duffel bags or storage bins",
+  "Oversized bags",
+  "Laundry baskets",
+  "Duffel bags",
 ];
 
-const turnaroundSchedule = [
-  { day: "Monday pickup", delivery: "Tuesday delivery" },
-  { day: "Tuesday pickup", delivery: "Wednesday delivery" },
-  { day: "Wednesday pickup", delivery: "Thursday delivery" },
-  { day: "Thursday pickup", delivery: "Friday morning delivery" },
+const turnaround = [
+  { pickup: "Monday", delivery: "Wednesday" },
+  { pickup: "Tuesday", delivery: "Thursday" },
+  { pickup: "Wednesday", delivery: "Friday" },
+  { pickup: "Thursday", delivery: "Friday AM" },
 ];
 
 export function Pricing() {
   return (
-    <section id="pricing" className="py-20 lg:py-32 bg-[#f9f7f2]">
+    <section id="pricing" className="py-24 lg:py-32 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="text-center max-w-3xl mx-auto mb-16"
+          className="text-center max-w-2xl mx-auto mb-16"
         >
-          <span className="inline-block text-sm font-semibold text-[#1a365d] uppercase tracking-wider mb-4">
+          <span className="text-sm font-medium text-[#1a365d]/70 uppercase tracking-widest">
             Bag Requirements
           </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#1a365d] mb-6">
-            Proper Bag Preparation
+          <h2 className="mt-4 text-3xl sm:text-4xl font-semibold text-[#1a365d] tracking-tight">
+            Bag Preparation
           </h2>
-          <p className="text-lg text-slate-600">
-            Flat-rate pricing applies to standard 13-gallon kitchen trash bags
-            only. Please follow these guidelines for the best experience.
+          <p className="mt-4 text-slate-500 text-lg">
+            Flat-rate pricing applies to standard kitchen trash bags
           </p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-8 mb-16">
-          {/* Accepted Bags */}
+        {/* Bag Guidelines */}
+        <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto mb-16">
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
+            transition={{ duration: 0.4 }}
           >
-            <Card className="h-full border-0 shadow-lg bg-white">
-              <CardContent className="p-8">
-                <div className="flex items-center gap-3 mb-6">
-                  <div className="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center">
-                    <Check className="w-6 h-6 text-green-600" />
-                  </div>
-                  <h3 className="text-xl font-bold text-[#1a365d]">
-                    Accepted Bags
-                  </h3>
-                </div>
-                <ul className="space-y-4">
+            <Card className="border-0 shadow-sm bg-[#fafaf9]">
+              <CardContent className="p-6">
+                <h3 className="font-semibold text-[#1a365d] mb-4 flex items-center gap-2">
+                  <Check className="w-4 h-4 text-green-600" />
+                  Accepted
+                </h3>
+                <ul className="space-y-3">
                   {acceptedBags.map((item) => (
-                    <li key={item} className="flex items-start gap-3">
-                      <Check className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
-                      <span className="text-slate-700">{item}</span>
+                    <li key={item} className="text-sm text-slate-600 pl-6">
+                      {item}
                     </li>
                   ))}
                 </ul>
@@ -79,165 +73,56 @@ export function Pricing() {
             </Card>
           </motion.div>
 
-          {/* Not Accepted */}
           <motion.div
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.1 }}
+            transition={{ duration: 0.4, delay: 0.1 }}
           >
-            <Card className="h-full border-0 shadow-lg bg-white">
-              <CardContent className="p-8">
-                <div className="flex items-center gap-3 mb-6">
-                  <div className="w-12 h-12 bg-red-100 rounded-xl flex items-center justify-center">
-                    <X className="w-6 h-6 text-red-600" />
-                  </div>
-                  <h3 className="text-xl font-bold text-[#1a365d]">
-                    Not Accepted
-                  </h3>
-                </div>
-                <ul className="space-y-4">
+            <Card className="border-0 shadow-sm bg-[#fafaf9]">
+              <CardContent className="p-6">
+                <h3 className="font-semibold text-[#1a365d] mb-4 flex items-center gap-2">
+                  <X className="w-4 h-4 text-red-500" />
+                  Not Accepted
+                </h3>
+                <ul className="space-y-3">
                   {notAccepted.map((item) => (
-                    <li key={item} className="flex items-start gap-3">
-                      <X className="w-5 h-5 text-red-500 flex-shrink-0 mt-0.5" />
-                      <span className="text-slate-700">{item}</span>
+                    <li key={item} className="text-sm text-slate-600 pl-6">
+                      {item}
                     </li>
                   ))}
                 </ul>
-                <div className="mt-6 p-4 bg-amber-50 rounded-xl border border-amber-200">
-                  <p className="text-sm text-amber-800">
-                    <Info className="w-4 h-4 inline mr-2" />
-                    Overstuffed or oversized bags may be counted as additional
-                    bags or priced by weight.
-                  </p>
-                </div>
               </CardContent>
             </Card>
           </motion.div>
         </div>
 
-        {/* Turnaround Options */}
+        {/* Turnaround */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="mb-16"
         >
           <div className="text-center mb-8">
-            <h3 className="text-2xl font-bold text-[#1a365d] mb-2">
-              Turnaround Options
-            </h3>
-            <p className="text-slate-600">
-              Choose the service level that fits your schedule
-            </p>
+            <h3 className="text-xl font-semibold text-[#1a365d]">Turnaround Schedule</h3>
+            <p className="text-sm text-slate-500 mt-1">Standard service: 48 hours</p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-6">
-            {/* Standard Service */}
-            <Card className="border-0 shadow-lg bg-white">
-              <CardContent className="p-8">
-                <div className="flex items-center justify-between mb-6">
-                  <div className="flex items-center gap-3">
-                    <div className="w-12 h-12 bg-[#1a365d]/10 rounded-xl flex items-center justify-center">
-                      <Clock className="w-6 h-6 text-[#1a365d]" />
-                    </div>
-                    <div>
-                      <h4 className="text-lg font-bold text-[#1a365d]">
-                        Standard Service
-                      </h4>
-                      <p className="text-sm text-slate-500">Included</p>
-                    </div>
-                  </div>
-                  <Badge className="bg-green-100 text-green-700 hover:bg-green-100">
-                    Free
-                  </Badge>
-                </div>
-                <p className="text-slate-600 mb-4">
-                  48-hour turnaround time from pickup to delivery
-                </p>
-                <ul className="space-y-2 text-sm text-slate-600">
-                  <li className="flex items-center gap-2">
-                    <Check className="w-4 h-4 text-green-600" />
-                    Pickup Monday → Delivery Wednesday
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <Check className="w-4 h-4 text-green-600" />
-                    Professional cleaning & folding
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <Check className="w-4 h-4 text-green-600" />
-                    Same quality care
-                  </li>
-                </ul>
-              </CardContent>
-            </Card>
-
-            {/* Next-Day Delivery */}
-            <Card className="border-0 shadow-lg bg-white">
-              <CardContent className="p-8">
-                <div className="flex items-center justify-between mb-6">
-                  <div className="flex items-center gap-3">
-                    <div className="w-12 h-12 bg-amber-100 rounded-xl flex items-center justify-center">
-                      <Clock className="w-6 h-6 text-amber-600" />
-                    </div>
-                    <div>
-                      <h4 className="text-lg font-bold text-[#1a365d]">
-                        Next-Day Delivery
-                      </h4>
-                      <p className="text-sm text-slate-500">Premium Upgrade</p>
-                    </div>
-                  </div>
-                  <Badge className="bg-amber-100 text-amber-700 hover:bg-amber-100">
-                    +$20
-                  </Badge>
-                </div>
-                <p className="text-slate-600 mb-4">
-                  Next-day delivery available on select weekdays
-                </p>
-                <div className="space-y-2">
-                  {turnaroundSchedule.map((schedule) => (
-                    <div
-                      key={schedule.day}
-                      className="flex items-center justify-between text-sm py-1.5 px-3 bg-slate-50 rounded-lg"
-                    >
-                      <span className="text-slate-600">{schedule.day}</span>
-                      <span className="font-medium text-[#1a365d]">
-                        {schedule.delivery}
-                      </span>
-                    </div>
-                  ))}
-                </div>
-                <p className="text-xs text-slate-500 mt-4">
-                  <X className="w-3 h-3 inline mr-1" />
-                  No weekend deliveries or Monday drop-offs
-                </p>
-              </CardContent>
-            </Card>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-3xl mx-auto">
+            {turnaround.map((item) => (
+              <div key={item.pickup} className="text-center p-4 bg-[#fafaf9] rounded-xl">
+                <p className="text-xs text-slate-400 uppercase tracking-wider mb-1">Pickup</p>
+                <p className="font-medium text-[#1a365d]">{item.pickup}</p>
+                <p className="text-xs text-slate-400 mt-2 mb-1">Delivery</p>
+                <p className="text-sm text-slate-600">{item.delivery}</p>
+              </div>
+            ))}
           </div>
-        </motion.div>
 
-        {/* Route Fee */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="p-6 bg-[#1a365d] rounded-2xl text-white"
-        >
-          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-            <div className="flex items-start gap-4">
-              <div className="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center">
-                <Truck className="w-6 h-6 text-white" />
-              </div>
-              <div>
-                <h4 className="font-bold text-lg mb-1">Pickup & Delivery</h4>
-                <p className="text-white/80">
-                  $6.95 per stop • Waived on orders $75+ • Free for subscription
-                  customers
-                </p>
-              </div>
-            </div>
+          <div className="mt-6 flex items-center justify-center gap-2 text-sm text-slate-500">
+            <Info className="w-4 h-4" />
+            <span>Next-day available (+$20) • No weekend service</span>
           </div>
         </motion.div>
       </div>

@@ -1,122 +1,58 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Bed, BedDouble, Cloud, Tent, Square, Circle } from "lucide-react";
-import { Card, CardContent } from "@/components/ui/card";
 
 const items = [
-  {
-    icon: Square,
-    name: "Blanket (Standard)",
-    price: "$20",
-    description: "Standard size blankets",
-  },
-  {
-    icon: BedDouble,
-    name: "Large / Weighted Blanket",
-    price: "$28",
-    description: "Heavy or oversized blankets",
-  },
-  {
-    icon: Bed,
-    name: "Comforter / Duvet (Twin/Full)",
-    price: "$30",
-    description: "Smaller bed comforters",
-  },
-  {
-    icon: BedDouble,
-    name: "Comforter / Duvet (Queen/King)",
-    price: "$40",
-    description: "Larger bed comforters",
-  },
-  {
-    icon: Cloud,
-    name: "Quilt / Bedspread",
-    price: "$25",
-    description: "Quilts and decorative spreads",
-  },
-  {
-    icon: Tent,
-    name: "Sleeping Bag",
-    price: "$25",
-    description: "All types of sleeping bags",
-  },
-  {
-    icon: Square,
-    name: "Mattress Pad / Small Rug",
-    price: "$30",
-    description: "Mattress protectors, small rugs",
-  },
-  {
-    icon: Circle,
-    name: "Pillow / Sham",
-    price: "$8–$12",
-    description: "Standard to king size",
-  },
+  { name: "Standard Blanket", price: "$20" },
+  { name: "Weighted Blanket", price: "$28" },
+  { name: "Comforter (Twin/Full)", price: "$30" },
+  { name: "Comforter (Queen/King)", price: "$40" },
+  { name: "Quilt / Bedspread", price: "$25" },
+  { name: "Sleeping Bag", price: "$25" },
+  { name: "Mattress Pad", price: "$30" },
+  { name: "Pillow / Sham", price: "$8–$12" },
 ];
 
 export function SpecialtyItems() {
   return (
-    <section className="py-20 lg:py-32 bg-[#f9f7f2]">
+    <section className="py-24 lg:py-32 bg-[#fafaf9]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="text-center max-w-3xl mx-auto mb-16"
+          className="text-center max-w-2xl mx-auto mb-12"
         >
-          <span className="inline-block text-sm font-semibold text-[#1a365d] uppercase tracking-wider mb-4">
+          <span className="text-sm font-medium text-[#1a365d]/70 uppercase tracking-widest">
             Specialty Items
           </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#1a365d] mb-6">
-            Bulky Items & Bedding
+          <h2 className="mt-4 text-3xl sm:text-4xl font-semibold text-[#1a365d] tracking-tight">
+            Bulky Items
           </h2>
-          <p className="text-lg text-slate-600">
-            Large items that don&apos;t fit in standard bags are priced
-            individually. Contact us for custom quotes on oversized items.
+          <p className="mt-4 text-slate-500">
+            Priced individually. Contact us for oversized items.
           </p>
         </motion.div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {items.map((item, index) => (
-            <motion.div
-              key={item.name}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.05 }}
-            >
-              <Card className="h-full border-0 shadow-md hover:shadow-lg transition-shadow bg-white">
-                <CardContent className="p-6 text-center">
-                  <div className="w-12 h-12 bg-[#1a365d]/10 rounded-xl flex items-center justify-center mx-auto mb-4">
-                    <item.icon className="w-6 h-6 text-[#1a365d]" />
-                  </div>
-                  <h3 className="font-semibold text-[#1a365d] mb-1 text-sm">
-                    {item.name}
-                  </h3>
-                  <p className="text-2xl font-bold text-[#1a365d] mb-2">
-                    {item.price}
-                  </p>
-                  <p className="text-xs text-slate-500">{item.description}</p>
-                </CardContent>
-              </Card>
-            </motion.div>
-          ))}
-        </div>
-
-        {/* Note */}
+        {/* Items Grid */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.4 }}
-          className="mt-12 text-center"
+          transition={{ duration: 0.5 }}
+          className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto"
         >
-          <p className="text-slate-500 text-sm">
-            Prices subject to change based on item size and condition. Contact
-            us for a custom quote on specialty or oversized items.
-          </p>
+          {items.map((item, index) => (
+            <div
+              key={item.name}
+              className="p-5 bg-white rounded-2xl border border-slate-100 text-center hover:shadow-sm transition-shadow"
+            >
+              <p className="text-2xl font-semibold text-[#1a365d]">{item.price}</p>
+              <p className="text-sm text-slate-500 mt-1">{item.name}</p>
+            </div>
+          ))}
         </motion.div>
       </div>
     </section>

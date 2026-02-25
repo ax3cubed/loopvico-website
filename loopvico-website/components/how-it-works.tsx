@@ -1,170 +1,144 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Phone, Package, Sparkles, Truck, Shirt } from "lucide-react";
+import { Phone, Package, Truck, Sparkles, Shirt, Check } from "lucide-react";
 
 const steps = [
   {
     icon: Phone,
     title: "Schedule",
-    description: "Text, call or WhatsApp us to book your pickup. Choose a convenient time that works for your schedule.",
-    color: "bg-blue-500",
+    description: "Text or WhatsApp us to book your pickup at a convenient time.",
   },
   {
     icon: Package,
-    title: "Bag Your Items",
-    description: "Place your items in standard 13-gallon kitchen trash bags. Keep clothing and towels separate.",
-    color: "bg-indigo-500",
+    title: "Bag Items",
+    description: "Place items in standard kitchen trash bags. Keep clothing and towels separate.",
   },
   {
     icon: Truck,
     title: "We Pick Up",
-    description: "Our team arrives at your door, collects your bags, and transports them to our facility.",
-    color: "bg-violet-500",
+    description: "Our team collects your bags from your door and transports them.",
   },
   {
     icon: Sparkles,
     title: "Professional Care",
-    description: "Your items are washed, dried, and folded with premium care. Add hanging service for closet-ready delivery.",
-    color: "bg-purple-500",
+    description: "Items are washed, dried, and folded with premium attention to detail.",
   },
   {
     icon: Shirt,
     title: "Fresh Delivery",
-    description: "Clean, fresh laundry delivered back to your door within 48 hours (or next-day with premium).",
-    color: "bg-fuchsia-500",
+    description: "Clean laundry delivered to your door within 48 hours.",
   },
+];
+
+const features = [
+  "Hanging service available",
+  "Button reattachment",
+  "Closet-ready delivery",
 ];
 
 export function HowItWorks() {
   return (
-    <section id="how-it-works" className="py-20 lg:py-32 bg-white">
+    <section id="how-it-works" className="py-24 lg:py-32 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="text-center max-w-3xl mx-auto mb-16"
+          className="text-center max-w-2xl mx-auto mb-16"
         >
-          <span className="inline-block text-sm font-semibold text-[#1a365d] uppercase tracking-wider mb-4">
+          <span className="text-sm font-medium text-[#1a365d]/70 uppercase tracking-widest">
             How It Works
           </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#1a365d] mb-6">
-            Laundry Made Simple
+          <h2 className="mt-4 text-3xl sm:text-4xl font-semibold text-[#1a365d] tracking-tight">
+            Simple Process
           </h2>
-          <p className="text-lg text-slate-600">
-            From pickup to delivery, we handle everything so you can focus on
-            what matters most.
+          <p className="mt-4 text-slate-500 text-lg">
+            Five easy steps from pickup to delivery
           </p>
         </motion.div>
 
-        <div className="relative">
-          {/* Connecting Line (Desktop) */}
-          <div className="hidden lg:block absolute top-24 left-0 right-0 h-0.5 bg-gradient-to-r from-blue-200 via-indigo-200 to-purple-200" />
-
-          <div className="grid md:grid-cols-3 lg:grid-cols-5 gap-8 lg:gap-6">
-            {steps.map((step, index) => (
-              <motion.div
-                key={step.title}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="relative"
-              >
-                <div className="flex flex-col items-center text-center">
-                  {/* Step Number & Icon */}
-                  <div className="relative mb-6">
-                    <div
-                      className={`w-16 h-16 ${step.color} rounded-2xl flex items-center justify-center shadow-lg shadow-${step.color}/30`}
-                    >
-                      <step.icon className="w-8 h-8 text-white" />
-                    </div>
-                    <div className="absolute -top-2 -right-2 w-8 h-8 bg-[#1a365d] rounded-full flex items-center justify-center text-white text-sm font-bold">
-                      {index + 1}
-                    </div>
-                  </div>
-
-                  {/* Content */}
-                  <h3 className="text-lg font-bold text-[#1a365d] mb-2">
-                    {step.title}
-                  </h3>
-                  <p className="text-sm text-slate-600 leading-relaxed">
-                    {step.description}
-                  </p>
+        {/* Steps Grid */}
+        <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-8 lg:gap-6">
+          {steps.map((step, index) => (
+            <motion.div
+              key={step.title}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4, delay: index * 0.08 }}
+              className="text-center"
+            >
+              {/* Icon Container */}
+              <div className="relative inline-flex mb-5">
+                <div className="w-16 h-16 bg-[#1a365d] rounded-2xl flex items-center justify-center">
+                  <step.icon className="w-7 h-7 text-white" strokeWidth={1.5} />
                 </div>
-              </motion.div>
-            ))}
-          </div>
+                {/* Step Number Badge */}
+                <div className="absolute -top-2 -right-2 w-6 h-6 bg-white border border-slate-200 rounded-full flex items-center justify-center">
+                  <span className="text-xs font-semibold text-[#1a365d]">
+                    {index + 1}
+                  </span>
+                </div>
+              </div>
+
+              {/* Content */}
+              <h3 className="text-base font-semibold text-[#1a365d] mb-2">
+                {step.title}
+              </h3>
+              <p className="text-sm text-slate-500 leading-relaxed">
+                {step.description}
+              </p>
+            </motion.div>
+          ))}
         </div>
 
-        {/* Premium Services Highlight */}
+        {/* Premium Services */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.5 }}
-          className="mt-20 p-8 lg:p-12 bg-[#f9f7f2] rounded-3xl"
+          transition={{ duration: 0.5, delay: 0.3 }}
+          className="mt-20 pt-16 border-t border-slate-100"
         >
-          <div className="grid lg:grid-cols-2 gap-8 items-center">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
-              <h3 className="text-2xl lg:text-3xl font-bold text-[#1a365d] mb-4">
-                Premium Care Services
+              <span className="text-sm font-medium text-[#1a365d]/70 uppercase tracking-widest">
+                Premium Care
+              </span>
+              <h3 className="mt-4 text-2xl sm:text-3xl font-semibold text-[#1a365d] tracking-tight">
+                What Sets Us Apart
               </h3>
-              <p className="text-slate-600 mb-6">
-                What sets us apart from ordinary laundry services
+              <p className="mt-4 text-slate-500">
+                Attention to detail that makes the difference
               </p>
-              <ul className="space-y-4">
-                <li className="flex items-start gap-3">
-                  <div className="w-6 h-6 bg-[#1a365d]/10 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
-                    <Shirt className="w-3 h-3 text-[#1a365d]" />
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-[#1a365d]">
-                      Hanging Service
-                    </h4>
-                    <p className="text-sm text-slate-600">
-                      Closet-ready delivery for dress shirts, blouses, and
-                      delicate items. Customer provides hangers.
-                    </p>
-                    <p className="text-sm text-slate-500 mt-1">
-                      Subscribers: Included (up to 10 items) • Non-subscribers: +$5
-                    </p>
-                  </div>
-                </li>
-                <li className="flex items-start gap-3">
-                  <div className="w-6 h-6 bg-[#1a365d]/10 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
-                    <Sparkles className="w-3 h-3 text-[#1a365d]" />
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-[#1a365d]">
-                      Courtesy Button Reattachment
-                    </h4>
-                    <p className="text-sm text-slate-600">
-                      We reattach loose buttons when the original is provided.
-                    </p>
-                    <p className="text-sm text-slate-500 mt-1">
-                      Free for subscribers • $2/button for non-subscribers (max 2)
-                    </p>
-                  </div>
-                </li>
+              
+              <ul className="mt-8 space-y-4">
+                {features.map((feature) => (
+                  <li key={feature} className="flex items-center gap-3">
+                    <div className="w-5 h-5 rounded-full bg-[#1a365d]/10 flex items-center justify-center flex-shrink-0">
+                      <Check className="w-3 h-3 text-[#1a365d]" />
+                    </div>
+                    <span className="text-slate-700">{feature}</span>
+                  </li>
+                ))}
               </ul>
             </div>
-            <div className="relative">
-              <div className="aspect-square bg-gradient-to-br from-[#1a365d]/5 to-[#1a365d]/10 rounded-2xl flex items-center justify-center">
-                <div className="text-center p-8">
-                  <div className="w-24 h-24 bg-[#1a365d]/10 rounded-full flex items-center justify-center mx-auto mb-6">
-                    <Sparkles className="w-12 h-12 text-[#1a365d]" />
-                  </div>
-                  <h4 className="text-xl font-bold text-[#1a365d] mb-2">
-                    Quality Guaranteed
-                  </h4>
-                  <p className="text-slate-600">
-                    Every item receives the same careful attention we&apos;d give
-                    our own clothes
-                  </p>
-                </div>
+
+            <div className="grid sm:grid-cols-2 gap-4">
+              <div className="p-6 bg-slate-50 rounded-2xl">
+                <h4 className="font-semibold text-[#1a365d] mb-2">Hanging Service</h4>
+                <p className="text-sm text-slate-500">
+                  Dress shirts and delicate items returned on hangers, ready for your closet.
+                </p>
+              </div>
+              <div className="p-6 bg-slate-50 rounded-2xl">
+                <h4 className="font-semibold text-[#1a365d] mb-2">Button Care</h4>
+                <p className="text-sm text-slate-500">
+                  Loose buttons reattached at no extra charge for subscribers.
+                </p>
               </div>
             </div>
           </div>
