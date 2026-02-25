@@ -6,8 +6,12 @@ const nextConfig: NextConfig = {
   images: {
     unoptimized: true,
   },
-  // Security headers are configured via meta tags in layout.tsx for static export
-  // For production deployment, configure headers in your hosting platform (Vercel, Netlify, etc.)
+  trailingSlash: true,
+  poweredByHeader: false,
+  compress: true,
+  generateEtags: true,
+  // Note: Headers and redirects are configured at the hosting platform level
+  // for static exports. Security headers are set via meta tags in layout.tsx
 };
 
 export default nextConfig;

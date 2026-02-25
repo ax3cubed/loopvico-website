@@ -7,7 +7,7 @@ import { Subscriptions } from "@/components/subscriptions";
 import { SpecialtyItems } from "@/components/specialty-items";
 import { Contact } from "@/components/contact";
 import { Footer } from "@/components/footer";
-
+import { Analytics } from "@vercel/analytics/next"
 export default function Home() {
   return (
     <main className="min-h-screen bg-[#f9f7f2]">
@@ -20,6 +20,7 @@ export default function Home() {
       <SpecialtyItems />
       <Contact />
       <Footer />
+      <Analytics />
     </main>
   );
 }

@@ -1,0 +1,16 @@
+/* TEAM */
+
+Owner: Loopvico Laundry & Linen
+Site: https://loopvico.com
+Location: Mansfield, Texas, USA
+
+/* THANKS */
+
+Name: Our loyal customers
+
+/* SITE */
+
+Last update: 2025-02-25
+Standards: HTML5, CSS3, ES2022
+Components: Next.js, React, Tailwind CSS, shadcn/ui
+Software: VS Code, Node.js, Git

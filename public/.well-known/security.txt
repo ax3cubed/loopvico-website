@@ -1,0 +1,7 @@
+Contact: mailto:loopvico@gmail.com
+Contact: https://loopvico.com/contact
+Expires: 2026-02-25T00:00:00.000Z
+Acknowledgments: https://loopvico.com/security/acknowledgments
+Preferred-Languages: en
+Canonical: https://loopvico.com/.well-known/security.txt
+Policy: https://loopvico.com/security/policy
