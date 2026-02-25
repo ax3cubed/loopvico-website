@@ -383,10 +383,13 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <head>
-        {/* Favicon and Icons */}
-        <link rel="icon" href="/favicon.ico" sizes="any" />
+        {/* Favicon and Icons - SVG First */}
         <link rel="icon" href="/icon.svg" type="image/svg+xml" />
-        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+        <link rel="icon" href="/favicon.ico" sizes="32x32" />
+        <link rel="apple-touch-icon" href="/apple-icon.svg" type="image/svg+xml" />
+        <link rel="mask-icon" href="/icon.svg" color="#1a365d" />
+        <meta name="msapplication-TileImage" content="/maskable-icon.svg" />
+        <meta name="msapplication-TileColor" content="#1a365d" />
         <link rel="manifest" href="/site.webmanifest" />
         
         {/* Preconnect to external domains */}

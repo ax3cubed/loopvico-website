@@ -26,8 +26,13 @@ export function Footer() {
         <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-8">
           {/* Logo & Copyright */}
           <div>
-            <a href="#" className="text-2xl font-semibold text-white tracking-tight">
-              Loopvico
+            <a href="#" className="flex items-center gap-2">
+              <svg width="28" height="28" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg" className="rounded-md">
+                <rect width="512" height="512" rx="128" fill="#ffffff"/>
+                <text x="256" y="340" textAnchor="middle" fontFamily="system-ui, -apple-system, sans-serif" fontSize="280" fontWeight="700" fill="#1a365d">L</text>
+                <circle cx="400" cy="112" r="24" fill="#22c55e"/>
+              </svg>
+              <span className="text-2xl font-semibold text-white tracking-tight">Loopvico</span>
             </a>
             <p className="text-white/50 text-sm mt-2">
               © {new Date().getFullYear()} Loopvico

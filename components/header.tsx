@@ -39,8 +39,19 @@ export function Header() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16 lg:h-20">
             {/* Logo */}
-            <a href="#" className="text-xl font-semibold text-[#1a365d] tracking-tight">
-              Loopvico
+            <a href="#" className="flex items-center gap-2">
+              <svg width="32" height="32" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg" className="rounded-lg">
+                <defs>
+                  <linearGradient id="headerIcon" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stopColor="#1a365d"/>
+                    <stop offset="100%" stopColor="#2d4a6f"/>
+                  </linearGradient>
+                </defs>
+                <rect width="512" height="512" rx="128" fill="url(#headerIcon)"/>
+                <text x="256" y="340" textAnchor="middle" fontFamily="system-ui, -apple-system, sans-serif" fontSize="280" fontWeight="700" fill="#ffffff">L</text>
+                <circle cx="400" cy="112" r="24" fill="#22c55e"/>
+              </svg>
+              <span className="text-xl font-semibold text-[#1a365d] tracking-tight">Loopvico</span>
             </a>
 
             {/* Desktop Nav */}
