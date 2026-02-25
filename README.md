@@ -40,22 +40,17 @@ This is a modern, responsive landing page for Loopvico Laundry & Linen, serving 
 
 ### Installation
 
-1. Clone or navigate to the project directory:
-```bash
-cd loopvico-website
-```
-
-2. Install dependencies:
+1. Install dependencies:
 ```bash
 npm install
 ```
 
-3. Run the development server:
+2. Run the development server:
 ```bash
 npm run dev
 ```
 
-4. Open [http://localhost:3000](http://localhost:3000) in your browser.
+3. Open [http://localhost:3000](http://localhost:3000) in your browser.
 
 ### Build for Production
 
@@ -68,26 +63,12 @@ The static files will be generated in the `dist/` directory, ready for deploymen
 ## Project Structure
 
 ```
-my-app/
-├── app/
-│   ├── globals.css      # Global styles and Tailwind config
-│   ├── layout.tsx       # Root layout with metadata and security headers
-│   └── page.tsx         # Main landing page
-├── components/
-│   ├── header.tsx       # Navigation header
-│   ├── hero.tsx         # Hero section
-│   ├── services.tsx     # Service offerings
-│   ├── pricing.tsx      # Pricing and bag requirements
-│   ├── how-it-works.tsx # Process explanation
-│   ├── subscriptions.tsx # Subscription plans
-│   ├── specialty-items.tsx # Specialty item pricing
-│   ├── contact.tsx      # Contact section
-│   └── footer.tsx       # Footer
-├── components/ui/       # shadcn/ui components
-├── lib/
-│   └── utils.ts         # Utility functions
-├── public/              # Static assets
-└── next.config.ts       # Next.js configuration
+├── app/                   # Next.js app router
+├── components/            # React components
+├── dist/                  # Build output (for deployment)
+├── public/                # Static assets
+├── package.json           # Dependencies
+└── next.config.ts         # Next.js configuration
 ```
 
 ## Customization
@@ -106,8 +87,7 @@ Update the phone number and WhatsApp link in `components/contact.tsx`:
 
 ```tsx
 // Current placeholder
-href: "https://wa.me/1234567890"
-href: "tel:+1234567890"
+const WHATSAPP_NUMBER = "1234567890";
 ```
 
 ### Service Areas
@@ -125,6 +105,8 @@ This project is configured for static export. Deploy the `dist/` folder to any s
 - AWS S3 + CloudFront
 
 ### Vercel Deployment
+
+Simply connect your GitHub repo to Vercel - the build settings will be detected automatically.
 
 ```bash
 npm i -g vercel
