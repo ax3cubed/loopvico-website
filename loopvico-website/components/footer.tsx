@@ -30,7 +30,7 @@ export function Footer() {
               Loopvico
             </a>
             <p className="text-white/50 text-sm mt-2">
-              © {new Date().getFullYear()} Loopvico Laundry
+              © {new Date().getFullYear()} Loopvico
             </p>
           </div>
 
