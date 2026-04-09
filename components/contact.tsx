@@ -1,12 +1,10 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { MessageCircle, Phone, Mail, MapPin, Clock } from "lucide-react";
 import { Button } from "@/components/ui/button";
-
-const WHATSAPP_NUMBER = "1234567890";
-
-const areas = ["Mansfield", "Arlington", "Irving", "Las Colinas", "Grand Prairie"];
+import { siteConfig } from "@/lib/site";
 
 export function Contact() {
   return (
@@ -27,7 +25,7 @@ export function Contact() {
               Get Started
             </h2>
             <p className="mt-4 text-slate-500 text-lg">
-              Message us on WhatsApp for quick booking
+              Message, call, text, or scan to start your booking.
             </p>
 
             {/* Service Areas */}
@@ -37,7 +35,7 @@ export function Contact() {
                 <span className="font-medium text-[#1a365d]">Service Areas</span>
               </div>
               <div className="flex flex-wrap gap-2">
-                {areas.map((city) => (
+                {siteConfig.serviceAreas.map((city) => (
                   <span
                     key={city}
                     className="text-sm text-slate-600 bg-[#fafaf9] px-3 py-1.5 rounded-full"
@@ -78,20 +76,49 @@ export function Contact() {
                 </div>
                 <div className="flex-1">
                   <h3 className="font-semibold text-[#1a365d]">WhatsApp</h3>
-                  <p className="text-sm text-slate-500">Quick booking & responses</p>
+                  <p className="text-sm text-slate-500">
+                    Quick booking and fast replies at {siteConfig.phone.display}
+                  </p>
                 </div>
                 <Button
                   asChild
                   className="bg-green-600 hover:bg-green-700 text-white rounded-full px-6"
                 >
                   <a
-                    href={`https://wa.me/${WHATSAPP_NUMBER}`}
+                    href={siteConfig.whatsappUrl}
                     target="_blank"
                     rel="noopener noreferrer"
                   >
                     Message
                   </a>
                 </Button>
+              </div>
+
+              <div className="mt-6 rounded-2xl bg-white p-4">
+                <div className="grid gap-4 sm:grid-cols-[112px_1fr] sm:items-center">
+                  <a
+                    href={siteConfig.whatsappUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mx-auto block overflow-hidden rounded-2xl border border-green-100"
+                    aria-label="Scan the QR code to open WhatsApp chat"
+                  >
+                    <Image
+                      src={siteConfig.scanToChatImage}
+                      alt="Scan to open WhatsApp chat with Loopvico"
+                      width={300}
+                      height={300}
+                      className="h-28 w-28"
+                    />
+                  </a>
+                  <div>
+                    <p className="text-sm font-medium text-[#1a365d]">Scan to chat</p>
+                    <p className="mt-1 text-sm leading-6 text-slate-500">
+                      Open WhatsApp instantly from your phone camera and send your
+                      pickup address, preferred day, or ZIP code.
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
 
@@ -103,14 +130,14 @@ export function Contact() {
                 </div>
                 <div className="flex-1">
                   <h3 className="font-semibold text-[#1a365d]">Call or Text</h3>
-                  <p className="text-sm text-slate-500">Speak with our team</p>
+                  <p className="text-sm text-slate-500">{siteConfig.phone.display}</p>
                 </div>
                 <Button
                   asChild
                   variant="outline"
                   className="border-[#1a365d]/20 text-[#1a365d] hover:bg-[#1a365d]/5 rounded-full px-6"
                 >
-                  <a href={`tel:+${WHATSAPP_NUMBER}`}>Call</a>
+                  <a href={`tel:${siteConfig.phone.e164}`}>Call</a>
                 </Button>
               </div>
             </div>
@@ -130,7 +157,7 @@ export function Contact() {
                   variant="outline"
                   className="border-[#1a365d]/20 text-[#1a365d] hover:bg-[#1a365d]/5 rounded-full px-6"
                 >
-                  <a href="mailto:loopvico@gmail.com">Email</a>
+                  <a href={`mailto:${siteConfig.email}`}>Email</a>
                 </Button>
               </div>
             </div>

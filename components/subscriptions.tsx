@@ -4,8 +4,7 @@ import { motion } from "framer-motion";
 import { Check } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-
-const WHATSAPP_NUMBER = "1234567890";
+import { siteConfig } from "@/lib/site";
 
 const plans = [
   {
@@ -39,7 +38,7 @@ const plans = [
 
 export function Subscriptions() {
   const openWhatsApp = () => {
-    window.open(`https://wa.me/${WHATSAPP_NUMBER}`, "_blank", "noopener,noreferrer");
+    window.open(siteConfig.whatsappUrl, "_blank", "noopener,noreferrer");
   };
 
   return (

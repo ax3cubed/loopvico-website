@@ -1,10 +1,10 @@
 "use client";
 
+import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { MessageCircle, Shirt, Truck, Clock } from "lucide-react";
-
-const WHATSAPP_NUMBER = "1234567890";
+import { siteConfig } from "@/lib/site";
 
 const features = [
   { icon: Truck, text: "Free Pickup & Delivery" },
@@ -38,8 +38,8 @@ export function Hero() {
             </h1>
 
             <p className="mt-6 text-lg text-slate-500 max-w-md leading-relaxed">
-              Premium pickup and delivery laundry service. We pick up dirty, 
-              deliver clean — all from your home.
+              Premium pickup and delivery laundry service. We pick up dirty,
+              deliver clean all from your home.
             </p>
 
             <div className="mt-8 flex flex-col sm:flex-row gap-4">
@@ -48,9 +48,9 @@ export function Hero() {
                 asChild
                 className="bg-green-600 hover:bg-green-700 text-white px-8 h-14 text-base font-medium rounded-full"
               >
-                <a 
-                  href={`https://wa.me/${WHATSAPP_NUMBER}`} 
-                  target="_blank" 
+                <a
+                  href={siteConfig.whatsappUrl}
+                  target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-2"
                 >
@@ -60,11 +60,33 @@ export function Hero() {
               </Button>
             </div>
 
+            <a
+              href={siteConfig.whatsappUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-5 inline-flex items-center gap-4 rounded-2xl border border-green-200 bg-white p-3 shadow-sm transition hover:shadow-md"
+              aria-label="Scan QR code to open WhatsApp chat"
+            >
+              <Image
+                src={siteConfig.scanToChatImage}
+                alt="Scan to open WhatsApp chat with Loopvico"
+                width={88}
+                height={88}
+                className="h-[88px] w-[88px] rounded-xl border border-green-100"
+              />
+              <div className="pr-2">
+                <p className="text-sm font-semibold text-[#1a365d]">Scan to book instantly</p>
+                <p className="mt-1 text-sm text-slate-500">
+                  Open WhatsApp from your camera and send your pickup details.
+                </p>
+              </div>
+            </a>
+
             {/* Service Areas */}
             <div className="mt-10 pt-8 border-t border-slate-200">
               <p className="text-xs text-slate-400 uppercase tracking-wider mb-3">Service Areas</p>
               <div className="flex flex-wrap gap-2">
-                {["Mansfield", "Arlington", "Irving", "Las Colinas", "Grand Prairie"].map((city) => (
+                {siteConfig.serviceAreas.map((city) => (
                   <span
                     key={city}
                     className="text-sm text-slate-600 bg-white px-3 py-1 rounded-full border border-slate-200"

@@ -1,6 +1,6 @@
 "use client";
-
-const WHATSAPP_NUMBER = "1234567890";
+import Image from "next/image";
+import { siteConfig } from "@/lib/site";
 
 const links = [
   { label: "Services", href: "#services" },
@@ -26,13 +26,14 @@ export function Footer() {
         <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-8">
           {/* Logo & Copyright */}
           <div>
-            <a href="#" className="flex items-center gap-2">
-              <svg width="28" height="28" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg" className="rounded-md">
-                <rect width="512" height="512" rx="128" fill="#ffffff"/>
-                <text x="256" y="340" textAnchor="middle" fontFamily="system-ui, -apple-system, sans-serif" fontSize="280" fontWeight="700" fill="#1a365d">L</text>
-                <circle cx="400" cy="112" r="24" fill="#22c55e"/>
-              </svg>
-              <span className="text-2xl font-semibold text-white tracking-tight">Loopvico</span>
+            <a href="#" className="inline-flex items-center rounded-md bg-white px-2 py-1">
+              <Image
+                src="/twitter-image.svg"
+                alt="Loopvico wordmark"
+                width={140}
+                height={32}
+                className="h-5 w-auto"
+              />
             </a>
             <p className="text-white/50 text-sm mt-2">
               © {new Date().getFullYear()} Loopvico
@@ -55,7 +56,7 @@ export function Footer() {
           {/* Social */}
           <div className="flex gap-4">
             <a
-              href={`https://wa.me/${WHATSAPP_NUMBER}`}
+              href={siteConfig.whatsappUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-green-600 transition-colors"
@@ -66,7 +67,7 @@ export function Footer() {
               </svg>
             </a>
             <a
-              href={`tel:+${WHATSAPP_NUMBER}`}
+              href={`tel:${siteConfig.phone.e164}`}
               className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-white/20 transition-colors"
               aria-label="Call"
             >
@@ -75,7 +76,7 @@ export function Footer() {
               </svg>
             </a>
             <a
-              href="mailto:loopvico@gmail.com"
+              href={`mailto:${siteConfig.email}`}
               className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-white/20 transition-colors"
               aria-label="Email"
             >
