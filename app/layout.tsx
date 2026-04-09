@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { siteConfig } from "@/lib/site";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -27,7 +28,8 @@ export const metadata: Metadata = {
     default: "Loopvico | Premium Laundry Pickup & Delivery Service",
     template: "%s | Loopvico Laundry",
   },
-  description: "Professional laundry and linen pickup & delivery service in Mansfield, Arlington, Irving, Las Colinas, and Grand Prairie. $40 flat-rate bags, subscription plans available. Same-day scheduling via WhatsApp.",
+  description:
+    "Professional laundry and linen pickup and delivery service in Mansfield, Arlington, Irving, Las Colinas, and Grand Prairie. $40 flat-rate bags, subscription plans available, and fast booking by WhatsApp, phone, or text.",
   keywords: [
     "laundry service",
     "pickup delivery laundry",
@@ -49,10 +51,13 @@ export const metadata: Metadata = {
     "professional laundry service",
     "linen service",
     "towel service",
+    "laundry pickup and delivery mansfield tx",
+    "wash and fold arlington tx",
+    "laundry service grand prairie tx",
   ],
-  authors: [{ name: "Loopvico Laundry & Linen" }],
-  creator: "Loopvico Laundry & Linen",
-  publisher: "Loopvico Laundry & Linen",
+  authors: [{ name: siteConfig.name }],
+  creator: siteConfig.name,
+  publisher: siteConfig.name,
   robots: {
     index: true,
     follow: true,
@@ -64,42 +69,44 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
-  metadataBase: new URL("https://loopvico.com"),
+  metadataBase: new URL(siteConfig.url),
   alternates: {
-    canonical: "https://loopvico.com",
+    canonical: siteConfig.url,
     languages: {
-      "en-US": "https://loopvico.com",
+      "en-US": siteConfig.url,
     },
   },
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://loopvico.com",
-    siteName: "Loopvico Laundry & Linen",
+    url: siteConfig.url,
+    siteName: siteConfig.name,
     title: "Loopvico | Premium Laundry Pickup & Delivery Service",
-    description: "Professional laundry and linen pickup & delivery service in DFW. $40 flat-rate bags, subscription plans available. Schedule via WhatsApp today!",
+    description:
+      "Professional laundry and linen pickup and delivery service in DFW. $40 flat-rate bags, subscription plans available. Schedule by WhatsApp, phone, or text today.",
     images: [
       {
-        url: "/og-image.jpg",
+        url: "/og-image.svg",
         width: 1200,
         height: 630,
         alt: "Loopvico Laundry & Linen - Premium Pickup and Delivery Service",
-        type: "image/jpeg",
+        type: "image/svg+xml",
       },
       {
-        url: "/og-image-square.jpg",
-        width: 1200,
-        height: 1200,
-        alt: "Loopvico Laundry & Linen Logo",
-        type: "image/jpeg",
+        url: "/icon.svg",
+        width: 512,
+        height: 512,
+        alt: "Loopvico Laundry & Linen icon",
+        type: "image/svg+xml",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Loopvico | Premium Laundry Pickup & Delivery Service",
-    description: "Professional laundry pickup & delivery in Mansfield, Arlington, Irving & more. $40 flat-rate bags. Schedule via WhatsApp!",
-    images: ["/twitter-image.jpg"],
+    description:
+      "Professional laundry pickup and delivery in Mansfield, Arlington, Irving, and more. $40 flat-rate bags. Schedule by WhatsApp, phone, or text.",
+    images: ["/twitter-image.svg"],
     creator: "@loopvico",
     site: "@loopvico",
   },
@@ -112,7 +119,7 @@ export const metadata: Metadata = {
   },
   category: "business",
   classification: "Laundry Service",
-  applicationName: "Loopvico Laundry",
+  applicationName: siteConfig.shortName,
   referrer: "strict-origin-when-cross-origin",
   other: {
     "X-UA-Compatible": "IE=edge",
@@ -130,16 +137,16 @@ export const metadata: Metadata = {
 const localBusinessSchema = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
-  "@id": "https://loopvico.com/#business",
-  "name": "Loopvico Laundry & Linen",
+  "@id": `${siteConfig.url}/#business`,
+  "name": siteConfig.name,
   "image": [
-    "https://loopvico.com/og-image.jpg",
-    "https://loopvico.com/logo.png",
+    `${siteConfig.url}/og-image.svg`,
+    `${siteConfig.url}/icon.svg`,
   ],
   "description": "Premium pickup and delivery laundry service serving the DFW Metroplex. We offer flat-rate pricing, subscription plans, and professional care for all your laundry needs.",
-  "url": "https://loopvico.com",
-  "telephone": "+1-XXX-XXX-XXXX",
-  "email": "loopvico@gmail.com",
+  "url": siteConfig.url,
+  "telephone": siteConfig.phone.e164,
+  "email": siteConfig.email,
   "priceRange": "$",
   "currenciesAccepted": "USD",
   "paymentAccepted": "Cash, Credit Card, Debit Card",
@@ -163,6 +170,16 @@ const localBusinessSchema = {
     "latitude": "32.5632",
     "longitude": "-97.1417",
   },
+  "contactPoint": [
+    {
+      "@type": "ContactPoint",
+      "contactType": "customer service",
+      "telephone": siteConfig.phone.e164,
+      "email": siteConfig.email,
+      "availableLanguage": ["English"],
+      "areaServed": "DFW Metroplex",
+    },
+  ],
   "openingHoursSpecification": [
     {
       "@type": "OpeningHoursSpecification",
@@ -180,7 +197,7 @@ const localBusinessSchema = {
   "sameAs": [
     "https://www.facebook.com/loopvico",
     "https://www.instagram.com/loopvico",
-    "https://wa.me/1234567890",
+    siteConfig.whatsappUrl,
   ],
   "hasOfferCatalog": {
     "@type": "OfferCatalog",
@@ -195,7 +212,7 @@ const localBusinessSchema = {
         },
         "price": "40.00",
         "priceCurrency": "USD",
-        "priceValidUntil": "2025-12-31",
+        "priceValidUntil": "2026-12-31",
       },
       {
         "@type": "Offer",
@@ -206,7 +223,7 @@ const localBusinessSchema = {
         },
         "price": "48.00",
         "priceCurrency": "USD",
-        "priceValidUntil": "2025-12-31",
+        "priceValidUntil": "2026-12-31",
       },
       {
         "@type": "Offer",
@@ -218,7 +235,7 @@ const localBusinessSchema = {
         "price": "2.29",
         "priceCurrency": "USD",
         "unitCode": "LBR",
-        "priceValidUntil": "2025-12-31",
+        "priceValidUntil": "2026-12-31",
       },
     ],
   },
@@ -231,50 +248,16 @@ const serviceSchema = {
   "serviceType": "Laundry Delivery Service",
   "provider": {
     "@type": "LocalBusiness",
-    "name": "Loopvico Laundry & Linen",
+    "name": siteConfig.name,
   },
-  "areaServed": [
-    {
-      "@type": "City",
-      "name": "Mansfield",
-      "containedInPlace": {
-        "@type": "State",
-        "name": "Texas",
-      },
+  "areaServed": siteConfig.serviceAreas.map((area) => ({
+    "@type": "City",
+    "name": area,
+    "containedInPlace": {
+      "@type": "State",
+      "name": "Texas",
     },
-    {
-      "@type": "City",
-      "name": "Arlington",
-      "containedInPlace": {
-        "@type": "State",
-        "name": "Texas",
-      },
-    },
-    {
-      "@type": "City",
-      "name": "Irving",
-      "containedInPlace": {
-        "@type": "State",
-        "name": "Texas",
-      },
-    },
-    {
-      "@type": "City",
-      "name": "Las Colinas",
-      "containedInPlace": {
-        "@type": "State",
-        "name": "Texas",
-      },
-    },
-    {
-      "@type": "City",
-      "name": "Grand Prairie",
-      "containedInPlace": {
-        "@type": "State",
-        "name": "Texas",
-      },
-    },
-  ],
+  })),
   "hasOfferCatalog": {
     "@type": "OfferCatalog",
     "name": "Laundry Services",
@@ -337,7 +320,7 @@ const faqSchema = {
       "name": "What areas do you serve?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "We serve Mansfield, Arlington, Irving, Las Colinas, and Grand Prairie in the DFW Metroplex area.",
+        "text": `We serve ${siteConfig.serviceAreas.join(", ")} in the DFW Metroplex area.`,
       },
     },
     {
@@ -369,7 +352,7 @@ const faqSchema = {
       "name": "How do I schedule a pickup?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "You can schedule a pickup by messaging us on WhatsApp, calling, or texting us. We offer same-week scheduling for your convenience.",
+        "text": "You can schedule a pickup by messaging us on WhatsApp, calling, texting us, or scanning the chat code on the website. We offer same-week scheduling for your convenience.",
       },
     },
   ],
