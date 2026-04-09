@@ -7,6 +7,7 @@ import { Subscriptions } from "@/components/subscriptions";
 import { SpecialtyItems } from "@/components/specialty-items";
 import { SeoContent } from "@/components/seo-content";
 import { Contact } from "@/components/contact";
+import { LandingLinksSection } from "@/components/landing-links-section";
 import { Footer } from "@/components/footer";
 import { Analytics } from "@vercel/analytics/next";
 
@@ -22,6 +23,7 @@ export default function Home() {
       <SpecialtyItems />
       <SeoContent />
       <Contact />
+      <LandingLinksSection />
       <Footer />
       <Analytics />
     </main>
