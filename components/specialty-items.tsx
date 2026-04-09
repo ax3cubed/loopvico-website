@@ -44,7 +44,7 @@ export function SpecialtyItems() {
           transition={{ duration: 0.5 }}
           className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto"
         >
-          {items.map((item, index) => (
+          {items.map((item) => (
             <div
               key={item.name}
               className="p-5 bg-white rounded-2xl border border-slate-100 text-center hover:shadow-sm transition-shadow"
