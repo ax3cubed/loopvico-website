@@ -132,10 +132,10 @@ export function Header() {
             {/* Logo */}
             <Link href="/" className="flex items-center">
               <Image
-                src="/twitter-image.svg"
+                src="/wordmark.svg"
                 alt="Loopvico wordmark"
-                width={150}
-                height={34}
+                width={196}
+                height={35}
                 className="h-7 w-auto"
                 priority
               />

@@ -35,9 +35,9 @@ export function Footer() {
           <div className="lg:col-span-2">
             <Link href="/" className="inline-flex items-center rounded-md bg-white px-2 py-1">
               <Image
-                src="/twitter-image.svg"
+                src="/wordmark.svg"
                 alt="Loopvico wordmark"
-                width={140}
+                width={180}
                 height={32}
                 className="h-5 w-auto"
               />
