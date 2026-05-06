@@ -51,11 +51,14 @@ export function Contact() {
               <Clock className="w-4 h-4 text-[#1a365d] mt-0.5" />
               <div>
                 <span className="font-medium text-[#1a365d]">Schedule</span>
-                <p className="text-sm text-slate-500 mt-1">
-                  Pickup: Monday – Thursday<br />
-                  Delivery: 48 hours<br />
-                  <span className="text-slate-400">No weekend service</span>
-                </p>
+                <ul className="mt-1 text-sm text-slate-500 list-disc list-inside space-y-1">
+                  {siteConfig.businessHours.map(({ day, range }) => (
+                    <li key={day}>
+                      <span className="font-medium text-slate-600">{day}</span>: {range}
+                    </li>
+                  ))}
+                </ul>
+                <p className="text-sm text-slate-400 mt-2">Delivery: 48 hours</p>
               </div>
             </div>
           </motion.div>

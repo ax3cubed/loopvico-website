@@ -180,20 +180,14 @@ const localBusinessSchema = {
       "areaServed": "DFW Metroplex",
     },
   ],
-  "openingHoursSpecification": [
-    {
+  "openingHoursSpecification": siteConfig.openingHoursSpecification.map(
+    (spec) => ({
       "@type": "OpeningHoursSpecification",
-      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday"],
-      "opens": "08:00",
-      "closes": "18:00",
-    },
-    {
-      "@type": "OpeningHoursSpecification",
-      "dayOfWeek": "Friday",
-      "opens": "08:00",
-      "closes": "12:00",
-    },
-  ],
+      dayOfWeek: spec.dayOfWeek,
+      opens: spec.opens,
+      closes: spec.closes,
+    }),
+  ),
   "sameAs": [
     "https://www.facebook.com/loopvico",
     "https://www.instagram.com/loopvico",

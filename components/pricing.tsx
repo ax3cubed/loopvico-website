@@ -122,7 +122,7 @@ export function Pricing() {
 
           <div className="mt-6 flex items-center justify-center gap-2 text-sm text-slate-500">
             <Info className="w-4 h-4" />
-            <span>Next-day available (+$20) • No weekend service</span>
+            <span>Sunday closed • Next-day available (+$20) when offered</span>
           </div>
         </motion.div>
       </div>
